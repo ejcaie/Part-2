@@ -10,6 +10,8 @@ public class Knight : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     bool clickingOnSelf = false;
+    float health;
+    float maxHealth = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,7 @@ public class Knight : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && clickingOnSelf)
         {
             clickingOnSelf = true;
+            
         }
         animator.SetTrigger("TakeDamage");
     }
