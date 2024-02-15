@@ -4,10 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBar : MonoBehaviour
+public class NewHealthbar : MonoBehaviour
 {
     public Slider slider;
-
     public void TakeDamage(float value)
     {
         slider.value -= value;
@@ -18,3 +17,4 @@ public class HealthBar : MonoBehaviour
         slider.value = value;
     }
 }
+
