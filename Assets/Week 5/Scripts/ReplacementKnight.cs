@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class ReplacementKnight : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class ReplacementKnight : MonoBehaviour
     bool clickingOnSelf;
     public float maxHealth = 10;
     public float health;
-    bool isDead = false;
+    public bool isDead = false;
 
     Rigidbody2D rb;
     Animator animator;
@@ -72,11 +74,18 @@ public class ReplacementKnight : MonoBehaviour
         {
             isDead = true;
             animator.SetTrigger("Death");
+            LoadNextScene();
         }
         else
         {
             isDead = false;
             animator.SetTrigger("TakeDamage");
         }
+    }
+    public void LoadNextScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }
