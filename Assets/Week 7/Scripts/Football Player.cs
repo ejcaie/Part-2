@@ -7,10 +7,13 @@ using UnityEngine;
 public class FootballPlayer : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
+    Rigidbody2D rb;
+    public float speed = 500;
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = Color.yellow;
+        spriteRenderer.color = Color.red;
         Selected(false);
     }
 
@@ -23,11 +26,15 @@ public class FootballPlayer : MonoBehaviour
     {
         if (isSelected == true)
         {
-            spriteRenderer.color = Color.red;
+            spriteRenderer.color = Color.yellow;
         }
         else
         {
-            spriteRenderer.color= Color.yellow;
+            spriteRenderer.color= Color.red;
         }
+    }
+    public void Move(Vector2 direction)
+    {
+        rb.AddForce(direction * speed);
     }
 }
