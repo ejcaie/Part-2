@@ -7,10 +7,16 @@ using UnityEngine;
 public class FootballPlayer : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.yellow;
+        Selected(false);
+    }
 
     public void OnMouseDown()
     {
-        Selected(true);
+        Controller.SetSelectedPlayer(this);
     }
 
     public void Selected(bool isSelected)
@@ -18,6 +24,10 @@ public class FootballPlayer : MonoBehaviour
         if (isSelected == true)
         {
             spriteRenderer.color = Color.red;
+        }
+        else
+        {
+            spriteRenderer.color= Color.yellow;
         }
     }
 }
