@@ -12,7 +12,7 @@ AnimatorStateTransition:
     m_ConditionEvent: FaceLeft
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: Speed
+    m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7209292314034201349}
@@ -100,7 +100,7 @@ AnimatorStateTransition:
     m_ConditionEvent: FaceLeft
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: Speed
+    m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8658772140716267358}
@@ -154,7 +154,7 @@ AnimatorStateTransition:
     m_ConditionEvent: FaceLeft
     m_EventTreshold: 0
   - m_ConditionMode: 4
-    m_ConditionEvent: Speed
+    m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4659081389603736510}
@@ -185,7 +185,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Speed
+  - m_Name: Movement
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -216,7 +216,7 @@ AnimatorStateTransition:
     m_ConditionEvent: FaceLeft
     m_EventTreshold: 0
   - m_ConditionMode: 4
-    m_ConditionEvent: Speed
+    m_ConditionEvent: Movement
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8686091499817040033}
