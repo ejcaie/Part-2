@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
 
     void FixedUpdate()
     {
-        slider.value += (Time.deltaTime * 0.1f);
+        slider.value += (Time.deltaTime * 0.05f);
         timer = slider.value;
         if (timer == 1)
         {
