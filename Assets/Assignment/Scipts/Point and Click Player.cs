@@ -3,15 +3,18 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PointandClickPlayer : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
+    public AnimationCurve fall;
     Vector2 movement;
     Vector2 destination;
     public float speed = 6f;
-    bool falling;
+    float animationTime;
+    public bool falling;
 
     void Start()
     {
@@ -23,6 +26,7 @@ public class PointandClickPlayer : MonoBehaviour
     private void FixedUpdate()
     {
         if (falling == true) return;
+
         movement = destination - (Vector2)transform.position;
 
         if (movement.magnitude < 0.1)
@@ -44,11 +48,28 @@ public class PointandClickPlayer : MonoBehaviour
 
     void Update()
     {
-        if (falling == true) return;
+        if (falling == true) FallAnimation();
+
         if (Input.GetMouseButtonDown(0))
         {
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
         animator.SetFloat("Movement", movement.magnitude);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        falling = true;
+    }
+
+    void FallAnimation()
+    {
+        animationTime += Time.deltaTime * 2;
+        float interpolation = fall.Evaluate(animationTime);
+        if (transform.localScale.z < 0.1f)
+        {
+            Destroy(gameObject);
+        }
+        transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, interpolation);
     }
 }
